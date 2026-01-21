@@ -1,0 +1,1241 @@
+/* Variables de style inspirées d'Apple */
+:root {
+    --apple-light: #f5f5f7;
+    --apple-dark: #1d1d1f;
+    --apple-gray: #86868b;
+    --apple-light-gray: #d2d2d7;
+    --apple-card-bg: #ffffff;
+    --apple-accent: #0071e3;
+    --apple-accent-hover: #0077ED;
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 48px;
+    --spacing-xl: 80px;
+    --border-radius: 12px;
+    --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+    --success-color: #34c759;
+    --warning-color: #ff9500;
+    --danger-color: #ff3b30;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--apple-light);
+    color: var(--apple-dark);
+    line-height: 1.5;
+    font-weight: 400;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) var(--spacing-lg);
+    position: sticky;
+    top: 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+    color: var(--apple-dark);
+    cursor: pointer;
+}
+
+.logo span {
+    color: var(--apple-accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--apple-dark);
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.2s;
+    cursor: pointer;
+}
+
+.nav-links a:hover {
+    color: var(--apple-accent);
+}
+
+.nav-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary {
+    background-color: var(--apple-accent);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--apple-accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+}
+
+.btn-secondary {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52, 199, 89, 0.3);
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--apple-accent);
+    border: 1px solid var(--apple-accent);
+}
+
+.btn-outline:hover {
+    background-color: rgba(0, 113, 227, 0.05);
+    transform: translateY(-2px);
+}
+
+.btn-admin {
+    background-color: var(--apple-accent);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 0;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-admin:hover {
+    background-color: var(--apple-accent-hover);
+    transform: scale(1.05);
+}
+
+/* Section principale */
+.hero {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-title {
+    font-size: 80px;
+    font-weight: 600;
+    letter-spacing: -3px;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.05;
+}
+
+.main-title span {
+    color: var(--apple-accent);
+}
+
+.subtitle {
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--apple-gray);
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: -0.5px;
+}
+
+.call-button {
+    margin-top: var(--spacing-lg);
+}
+
+.call-button a {
+    text-decoration: none;
+}
+
+/* Modal de connexion */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: var(--shadow-medium);
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.modal-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--apple-gray);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.close-modal:hover {
+    background-color: var(--apple-light);
+}
+
+.modal-step {
+    display: none;
+}
+
+.modal-step.active {
+    display: block;
+    animation: stepFadeIn 0.3s ease;
+}
+
+@keyframes stepFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal-input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: var(--spacing-md);
+    border-radius: 8px;
+    border: 1px solid var(--apple-light-gray);
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s;
+}
+
+.modal-input:focus {
+    outline: none;
+    border-color: var(--apple-accent);
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-md);
+}
+
+/* Section espace réservation */
+.reservation-section {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    max-width: 1400px;
+    margin: 0 auto;
+    display: none;
+}
+
+.reservation-section.active {
+    display: block;
+    animation: sectionFadeIn 0.5s ease;
+}
+
+@keyframes sectionFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-title {
+    font-size: 40px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    letter-spacing: -1.5px;
+}
+
+/* Barre d'itinéraire */
+.itinerary-bar {
+    background-color: var(--apple-card-bg);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-subtle);
+    margin-bottom: var(--spacing-lg);
+}
+
+.itinerary-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.itinerary-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--apple-dark);
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid var(--apple-light-gray);
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--apple-accent);
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
+}
+
+.form-select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid var(--apple-light-gray);
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    background-color: white;
+    cursor: pointer;
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: var(--apple-accent);
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: var(--spacing-md);
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+/* Zone de location */
+.location-zone {
+    background-color: var(--apple-card-bg);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-subtle);
+    margin-bottom: var(--spacing-lg);
+}
+
+.zone-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+.zone-option {
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    background-color: var(--apple-light);
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.zone-option:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-subtle);
+}
+
+.zone-option.selected {
+    border-color: var(--apple-accent);
+    background-color: rgba(0, 113, 227, 0.05);
+}
+
+.zone-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--apple-dark);
+}
+
+.zone-price {
+    font-size: 16px;
+    color: var(--apple-accent);
+    font-weight: 500;
+}
+
+/* Calculatrice de prix */
+.calculator {
+    background-color: var(--apple-card-bg);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-subtle);
+    margin-bottom: var(--spacing-lg);
+}
+
+.calculator-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.calculator-item {
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    background-color: var(--apple-light);
+    transition: transform 0.2s ease;
+}
+
+.calculator-item:hover {
+    transform: translateY(-2px);
+}
+
+.calculator-label {
+    font-size: 14px;
+    color: var(--apple-gray);
+    margin-bottom: 4px;
+}
+
+.calculator-value {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--apple-dark);
+}
+
+.calculator-value.ariary::after {
+    content: " Ar";
+    font-size: 16px;
+    color: var(--apple-gray);
+}
+
+.calculator-total {
+    background-color: var(--apple-accent);
+    color: white;
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    margin-top: var(--spacing-md);
+    transition: all 0.3s ease;
+}
+
+.calculator-total:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+}
+
+.calculator-total .calculator-label {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.calculator-total .calculator-value {
+    color: white;
+}
+
+/* Paiement Mvola */
+.payment-section {
+    background-color: var(--apple-card-bg);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-subtle);
+    margin-bottom: var(--spacing-lg);
+}
+
+.payment-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.mvola-logo {
+    width: 60px;
+    height: 60px;
+    background-color: #00A859;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.payment-instructions {
+    background-color: var(--apple-light);
+    padding: var(--spacing-md);
+    border-radius: 8px;
+    margin-bottom: var(--spacing-md);
+    border-left: 4px solid var(--apple-accent);
+}
+
+/* Facture */
+.invoice-section {
+    background-color: var(--apple-card-bg);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-subtle);
+    margin-bottom: var(--spacing-lg);
+    display: none;
+}
+
+.invoice-container {
+    background-color: white;
+    padding: var(--spacing-xl);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.invoice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--apple-light-gray);
+}
+
+.company-info {
+    flex: 1;
+}
+
+.company-name {
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--apple-accent);
+    margin-bottom: 5px;
+}
+
+.invoice-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: var(--apple-dark);
+    text-align: right;
+}
+
+.invoice-number {
+    font-size: 16px;
+    color: var(--apple-gray);
+    text-align: right;
+}
+
+.invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--spacing-lg) 0;
+}
+
+.invoice-table th {
+    background-color: var(--apple-light);
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--apple-dark);
+    border-bottom: 2px solid var(--apple-light-gray);
+}
+
+.invoice-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--apple-light-gray);
+    color: var(--apple-dark);
+}
+
+.invoice-table .total-row {
+    background-color: var(--apple-light);
+    font-weight: 600;
+}
+
+.invoice-footer {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-md);
+    border-top: 2px solid var(--apple-light-gray);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.payment-details {
+    flex: 1;
+}
+
+.signature-area {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.signature-line {
+    width: 200px;
+    border-top: 1px solid var(--apple-dark);
+    margin: 0 auto 10px;
+}
+
+/* Espace client */
+.client-space {
+    background-color: var(--apple-card-bg);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-subtle);
+    margin-bottom: var(--spacing-lg);
+    display: none;
+}
+
+.client-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.client-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.client-id {
+    font-size: 16px;
+    color: var(--apple-gray);
+    background-color: var(--apple-light);
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.client-table-container {
+    margin-top: var(--spacing-md);
+    overflow-x: auto;
+}
+
+.client-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.client-table th {
+    background-color: var(--apple-light);
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--apple-dark);
+    border-bottom: 2px solid var(--apple-light-gray);
+}
+
+.client-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--apple-light-gray);
+    color: var(--apple-dark);
+    vertical-align: middle;
+}
+
+.client-table tr:hover {
+    background-color: var(--apple-light);
+}
+
+.status-badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.status-accomplished {
+    background-color: rgba(52, 199, 89, 0.1);
+    color: var(--success-color);
+}
+
+.status-missed {
+    background-color: rgba(255, 59, 48, 0.1);
+    color: var(--danger-color);
+}
+
+.invoice-download {
+    color: var(--apple-accent);
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.invoice-download:hover {
+    text-decoration: underline;
+}
+
+/* Informations société */
+.info-section {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-card {
+    background-color: var(--apple-card-bg);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-subtle);
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.info-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.info-item:hover {
+    transform: translateY(-5px);
+}
+
+.info-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--apple-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: var(--apple-accent);
+    margin-bottom: var(--spacing-sm);
+    transition: all 0.2s ease;
+}
+
+.info-item:hover .info-icon {
+    background-color: var(--apple-accent);
+    color: white;
+    transform: scale(1.1);
+}
+
+.info-label {
+    font-size: 14px;
+    color: var(--apple-gray);
+    margin-bottom: 4px;
+}
+
+.info-value {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Calendrier de disponibilité */
+.calendar-section {
+    padding: var(--spacing-xl) var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.calendar-container {
+    background-color: var(--apple-card-bg);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-subtle);
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.calendar-title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.calendar-nav {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.calendar-legend {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+}
+
+.legend-available {
+    background-color: var(--success-color);
+}
+
+.legend-reserved {
+    background-color: var(--warning-color);
+}
+
+.legend-unavailable {
+    background-color: var(--danger-color);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--apple-dark);
+    color: var(--apple-light);
+    padding: var(--spacing-xl) var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+}
+
+.footer-section p {
+    color: var(--apple-light-gray);
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--apple-light-gray);
+    font-size: 14px;
+}
+
+/* Modal admin */
+.admin-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2001;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-modal.active {
+    display: flex;
+}
+
+.admin-modal-content {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    width: 90%;
+    max-width: 1000px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: var(--shadow-medium);
+    animation: modalFadeIn 0.3s ease;
+}
+
+.admin-tabs {
+    display: flex;
+    gap: 1px;
+    background-color: var(--apple-light-gray);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+    margin-bottom: var(--spacing-md);
+}
+
+.admin-tab {
+    padding: var(--spacing-md);
+    background-color: white;
+    border: none;
+    flex: 1;
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'Inter', sans-serif;
+}
+
+.admin-tab:hover {
+    background-color: var(--apple-light);
+}
+
+.admin-tab.active {
+    background-color: var(--apple-accent);
+    color: white;
+}
+
+.admin-tab.active:hover {
+    background-color: var(--apple-accent-hover);
+}
+
+.admin-tab-content {
+    display: none;
+}
+
+.admin-tab-content.active {
+    display: block;
+    animation: stepFadeIn 0.3s ease;
+}
+
+.admin-form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.admin-form-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--apple-dark);
+}
+
+.admin-form-input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--apple-light-gray);
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s;
+}
+
+.admin-form-input:focus {
+    outline: none;
+    border-color: var(--apple-accent);
+    box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
+}
+
+.admin-form-input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.admin-form-input[type="number"]::-webkit-outer-spin-button,
+.admin-form-input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.admin-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+/* Tableau utilisateurs */
+.users-table-container {
+    margin-top: var(--spacing-md);
+    overflow-x: auto;
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.users-table th {
+    background-color: var(--apple-light);
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--apple-dark);
+    border-bottom: 2px solid var(--apple-light-gray);
+}
+
+.users-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--apple-light-gray);
+    color: var(--apple-dark);
+}
+
+.users-table tr:hover {
+    background-color: var(--apple-light);
+}
+
+.users-table .user-id {
+    width: 50px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--apple-accent);
+}
+
+.users-table .user-date {
+    width: 120px;
+    font-size: 12px;
+    color: var(--apple-gray);
+}
+
+.no-users {
+    text-align: center;
+    padding: var(--spacing-lg);
+    color: var(--apple-gray);
+    font-style: italic;
+}
+
+/* Tableau réservations admin */
+.reservations-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.reservations-table th {
+    background-color: var(--apple-light);
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--apple-dark);
+    border-bottom: 2px solid var(--apple-light-gray);
+}
+
+.reservations-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--apple-light-gray);
+    color: var(--apple-dark);
+    vertical-align: middle;
+}
+
+.reservations-table tr:hover {
+    background-color: var(--apple-light);
+}
+
+.reservations-table .reservation-id {
+    width: 50px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--apple-accent);
+}
+
+.reservations-table .client-name {
+    width: 150px;
+}
+
+.reservations-table .reservation-type {
+    width: 120px;
+}
+
+.reservations-table .reservation-date {
+    width: 100px;
+    font-size: 12px;
+    color: var(--apple-gray);
+}
+
+.reservations-table .reservation-status {
+    width: 100px;
+}
+
+.reservations-table .invoice-cell {
+    width: 80px;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 48px;
+    }
+    
+    .subtitle {
+        font-size: 20px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .calculator-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .zone-options {
+        grid-template-columns: 1fr;
+    }
+    
+    .info-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .calendar-legend {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+    
+    .admin-modal-content {
+        width: 95%;
+        padding: var(--spacing-md);
+    }
+    
+    .invoice-header {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .invoice-title, .invoice-number {
+        text-align: left;
+    }
+    
+    .invoice-footer {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 36px;
+    }
+    
+    .hero {
+        padding: var(--spacing-lg) var(--spacing-md);
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .admin-tabs {
+        flex-direction: column;
+    }
+    
+    .admin-tab {
+        padding: var(--spacing-sm);
+    }
+    
+    .users-table, .reservations-table, .client-table {
+        font-size: 12px;
+    }
+    
+    .users-table th, .users-table td,
+    .reservations-table th, .reservations-table td,
+    .client-table th, .client-table td {
+        padding: 8px;
+    }
+}
